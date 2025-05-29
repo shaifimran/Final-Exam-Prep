@@ -48,6 +48,23 @@ ok: [default] => {
 }
 ```
 
+## Concepts Used
+
+### Terraform
+
+- **Provider:** The [Docker provider](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs) allows Terraform to interact with Docker and manage containers, images, and other Docker resources.
+- **Resource:** The `docker_container` resource is used to define and create the Ubuntu container. The `docker_image` resource is used to pull the Ubuntu image.
+- **Data Source:** Data sources in Terraform allow you to fetch information about existing resources, such as pulling the latest Ubuntu image.
+- **Variables:** Variables are used to make the configuration flexible (e.g., container name, image version).
+
+### Ansible
+
+- **Inventory:** The `inventory.ini` file lists the target hosts (in this case, the Docker container) for Ansible to manage.
+- **Playbook:** The `playbook.yml` file defines a series of tasks to be executed on the container, such as installing Python and running a script.
+- **Tasks:** Each step in the playbook (like installing packages or running commands) is a task.
+- **Modules:** Ansible modules (like `apt`, `command`, or `shell`) are used to perform specific actions on the target system.
+- **Roles:** Roles are a way to organize playbooks and tasks, but in this simple example, roles are not used. For larger projects, roles help structure reusable automation.
+
 ## Notes
 
 - The container runs a long-lived process to stay up for Ansible.
