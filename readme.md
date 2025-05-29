@@ -100,6 +100,15 @@ ok: [default] => {
   }
   ```
 
+  **Explanation:**  
+    This line tells Terraform's Docker provider to connect to the Docker daemon using the Unix socket file located at `/var/run/docker.sock`.  
+    - On Linux, Docker listens on this socket by default for local connections.
+    - By specifying this, Terraform can directly communicate with your local Docker engine to create and manage containers, images, etc.
+    - If you were managing Docker on a remote host, you would use a different connection string (like a TCP URL).
+
+    **In summary**:  
+    This setting allows Terraform to manage Docker resources on your local machine by talking to Docker through its default Unix socket.
+
 - **Resource:** Defines what you want to create or manage.  
   **Example:**  
   ```hcl
