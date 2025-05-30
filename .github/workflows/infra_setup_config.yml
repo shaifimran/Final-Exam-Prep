@@ -34,7 +34,7 @@ jobs:
               run: terraform apply -auto-approve
 
             - name: Set up Ansible
-              uses: dawidd6/action-ansible@v1
+              uses: dawidd6/action-ansible
               with:
                   ansible_version: 2.9.10
 
