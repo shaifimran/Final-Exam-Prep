@@ -45,7 +45,10 @@ jobs:
 
             - name: Set up Ansible
               uses: dawidd6/action-ansible-playbook@v3
-
-            - name: Run Ansible Playbook
-              run: ansible-playbook -i inventory setup.yml
-              working-directory: ansible
+              with:
+                    directory: ansible/
+                    playbook: playbook.yml
+                    inventory: |
+                        [local]
+                        localhost ansible_connection=local ansible_user=root
+                
