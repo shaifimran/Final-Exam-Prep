@@ -29,15 +29,19 @@ jobs:
 
             - name: Initialize Terraform
               run: terraform init
+              working-directory: terraform
             
             - name: Validate Terraform Configuration
               run: terraform validate
+              working-directory: terraform
 
             - name: Plan Terraform Configuration
               run: terraform plan
-              
+              working-directory: terraform
+
             - name: Apply Terraform Configuration
               run: terraform apply -auto-approve
+              working-directory: terraform
 
             - name: Set up Ansible
               uses: dawidd6/action-ansible-playbook@v3
@@ -46,3 +50,4 @@ jobs:
 
             - name: Run Ansible Playbook
               run: ansible-playbook -i inventory setup.yml
+              working-directory: ansible
